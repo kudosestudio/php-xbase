@@ -101,7 +101,9 @@ class TableCreator
         $header->recordByteLength = 1; //deleted mark
         foreach ($header->columns as $column) {
             assert($column->length);
-            $column->memAddress = $header->recordByteLength;
+            if ($column->memAddress === null) {
+                $column->memAddress = $header->recordByteLength;
+            }
             $header->recordByteLength += $column->length;
         }
     }
