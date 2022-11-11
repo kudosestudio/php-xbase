@@ -302,13 +302,6 @@ class TableReader
         return $this->recordPos;
     }
 
-    public function resetRecordPos()
-    {
-        $this->recordPos = -1;
-
-        return $this;
-    }
-
     public function getRecordByteLength()
     {
         return $this->getHeader()->recordByteLength;
